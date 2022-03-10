@@ -115,7 +115,7 @@ echo "GO for RESOLUTION ERROR HANDLING TEST"
 echo "====================================="
 echo
 tput init
-search_dir="test/map/"
+search_dir="mouliVD/map/"
 for entry in `ls $search_dir`; do
     mine="${search_dir}${entry}"
     test_expect_error_res $mine
