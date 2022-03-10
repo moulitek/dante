@@ -28,7 +28,7 @@ test_expect_success () {
 
 test_expect_error () {
         echo "    on test ${1} ${2} ${3} ${4}"
-        ./generator/generator ${1} ${2} > res
+        ./generator/generator ${1} ${2} ${3} ${4} > res
         ret1=$?
         if [ $ret1 == 84 ]
         then
