@@ -13,9 +13,7 @@ test_expect_success () {
 
         if [ $ret1 != 0 ]
         then
-            tput setaf 1 bold
             echo "KO return value"
-            tput init
             ret=84
         fi
         if [ $ret1 == 0 ]
@@ -32,13 +30,9 @@ test_expect_error () {
         ret1=$?
         if [ $ret1 == 84 ]
         then
-            tput setaf 2 bold
             echo "handling OK"
-            tput init
         else
-            tput setaf 1
             echo "handling KO : should have error 84"
-            tput init
             ret=84
         fi
         echo "-------------------------------------"
@@ -50,13 +44,9 @@ test_expect_error_res () {
         ret1=$(bash -c "echo $?")
         if [ $ret1 == 84 ]
         then
-            tput setaf 2 bold
             echo "handling OK"
-            tput init
         else
-            tput setaf 1
             echo "handling KO : should have error 84"
-            tput init
             ret=84
         fi
         echo "-------------------------------------"
@@ -146,9 +136,7 @@ do
     if [ $ret2 != 0 ] || [ $ret1 != 0 ]
     then
         python3 mouliVD/color.py res.val
-        tput setaf 1 bold
         echo "    KO"
-        tput init
         ret=84
     fi
 	i=`expr $i + 1`
