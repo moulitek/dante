@@ -36,6 +36,7 @@ jobs:
           echo "hook=$web" >> $GITHUB_ENV
       - name: Compile_and_test
         run: |
+          touch test.md
           echo "color=16711680" >> $GITHUB_ENV
           mv bad-flag.png flag.png
           echo "DESCRIPTION=Build ERROR" >> $GITHUB_ENV
