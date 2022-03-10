@@ -46,7 +46,7 @@ jobs:
           mv test-flag.png flag.png
           echo "DESCRIPTION=test-error" >> $GITHUB_ENV
 
-          ./mouliVD/script >> trace.md
+          ./mouliVD/script > test.md
           echo "color=65280" >> $GITHUB_ENV
           rm flag.png
           mv good-flag.png flag.png
@@ -67,6 +67,6 @@ jobs:
           COLOR: ${{ env.color }}
           DESCRIPTION: ${{ env.DESCRIPTION }}
           SUMMARY: ${{ steps.coding_style.outputs.SUMMARY }}
-          FILES: trace.md;flag.png
+          FILES: trace.md;test.md;flag.png
           USERNAME: Normeur
           URL: ${{env.hook}}
