@@ -14,7 +14,7 @@ test_expect_success () {
         if [ $ret1 != 0 ]
         then
             tput setaf 1 bold
-            echo "  KO return value"
+            echo "KO return value"
             tput init
             ret=84
         fi
@@ -33,11 +33,11 @@ test_expect_error () {
         if [ $ret1 == 84 ]
         then
             tput setaf 2 bold
-            echo "    handling OK"
+            echo "handling OK"
             tput init
         else
             tput setaf 1
-            echo "    handling KO : should have error 84"
+            echo "handling KO : should have error 84"
             tput init
             ret=84
         fi
@@ -51,11 +51,11 @@ test_expect_error_res () {
         if [ $ret1 == 84 ]
         then
             tput setaf 2 bold
-            echo "    handling OK"
+            echo "handling OK"
             tput init
         else
             tput setaf 1
-            echo "    handling KO : should have error 84"
+            echo "handling KO : should have error 84"
             tput init
             ret=84
         fi
