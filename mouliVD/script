@@ -21,7 +21,7 @@ test_expect_success () {
             echo "success with $ELAPSED s"
         fi
         rm res
-        echo "-------------------------------------"
+        echo "_____________________________________"
 }
 
 test_expect_error () {
@@ -35,7 +35,7 @@ test_expect_error () {
             echo "handling KO : should have error 84"
             ret=84
         fi
-        echo "-------------------------------------"
+        echo "_____________________________________"
 }
 
 test_expect_error_res () {
@@ -49,7 +49,7 @@ test_expect_error_res () {
             echo "handling KO : should have error 84"
             ret=84
         fi
-        echo "-------------------------------------"
+        echo "_____________________________________"
 }
 
 tput setaf 201 bold
