@@ -13,12 +13,12 @@ test_expect_success () {
 
         if [ $ret1 != 0 ]
         then
-            echo "KO return value"
+            echo "**KO return value**"
             ret=84
         fi
         if [ $ret1 == 0 ]
         then
-            echo "success with $ELAPSED s"
+            echo "    success with $ELAPSED s"
         fi
         rm res
         echo "_____________________________________"
@@ -30,9 +30,9 @@ test_expect_error () {
         ret1=$?
         if [ $ret1 == 84 ]
         then
-            echo "handling OK"
+            echo "    handling OK"
         else
-            echo "handling KO : should have error 84"
+            echo "**handling KO : should have error 84**"
             ret=84
         fi
         echo "_____________________________________"
@@ -44,9 +44,9 @@ test_expect_error_res () {
         ret1=$(bash -c "echo $?")
         if [ $ret1 == 84 ]
         then
-            echo "handling OK"
+            echo "    handling OK"
         else
-            echo "handling KO : should have error 84"
+            echo "**handling KO : should have error 84**"
             ret=84
         fi
         echo "_____________________________________"
