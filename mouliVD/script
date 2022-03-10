@@ -20,7 +20,7 @@ test_expect_success () {
         fi
         if [ $ret1 == 0 ]
         then
-            echo "  success with $ELAPSED s"
+            echo "success with $ELAPSED s"
         fi
         rm res
         echo "-------------------------------------"
