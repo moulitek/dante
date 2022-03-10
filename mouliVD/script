@@ -7,7 +7,7 @@ test_expect_success () {
         BEFORE=$($DATE +'%s')
         echo "    on size ${1} ${2}"
         ./generator/generator ${1} ${2} > res
-        ret1=$(bash -c "echo $?")
+        ret1=$?
         AFTER=$($DATE +'%s')
         ELAPSED=$(($AFTER - $BEFORE))
 
@@ -27,7 +27,7 @@ test_expect_success () {
 test_expect_error () {
         echo "    on test ${1} ${2} ${3} ${4}"
         ./generator/generator ${1} ${2} > res
-        ret1=$(bash -c "echo $?")
+        ret1=$?
         if [ $ret1 == 84 ]
         then
             tput setaf 2 bold
