@@ -46,7 +46,7 @@ jobs:
           mv test-flag.png flag.png
           echo "DESCRIPTION=test-error" >> $GITHUB_ENV
 
-          ./mouliVD/script > test.md
+          bash mouliVD/script > test.md
           echo "color=65280" >> $GITHUB_ENV
           rm flag.png
           mv good-flag.png flag.png
