@@ -17,9 +17,7 @@ test_expect_success () {
             echo "  KO return value"
             tput init
             ret=84
-        fi
-        if [ $ret1 == 0 ]
-        then
+        else
             echo "  success with $ELAPSED s"
         fi
         rm res
@@ -115,7 +113,7 @@ echo "GO for RESOLUTION ERROR HANDLING TEST"
 echo "====================================="
 echo
 tput init
-search_dir="mouliVD/map/"
+search_dir="test/map/"
 for entry in `ls $search_dir`; do
     mine="${search_dir}${entry}"
     test_expect_error_res $mine
@@ -144,7 +142,7 @@ do
     ret2=$(bash -c "echo $?")
     if [ $ret2 != 0 ] || [ $ret1 != 0 ]
     then
-        python3 test/color.py res.val
+        python3 mouliVD/color.py res.val
         tput setaf 1 bold
         echo "    KO"
         tput init
