@@ -17,7 +17,9 @@ test_expect_success () {
             echo "  KO return value"
             tput init
             ret=84
-        else
+        fi
+        if [ $ret1 == 0 ]
+        then
             echo "  success with $ELAPSED s"
         fi
         rm res
@@ -136,6 +138,7 @@ do
     w=`echo $(($RANDOM%180+1))`
     h=`echo $(($RANDOM%50+1))`
     echo "[$i] loop on $w $h"
+    echo ;
     ./generator/generator $w $h > output.val
     ret1=$(bash -c "echo $?")
     ./solver/solver output.val > res.val
