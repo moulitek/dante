@@ -1,10 +1,4 @@
 #!/bin/sh
-sh mouliVD/install_criterion.sh > /dev/null
-make tests_run > /dev/null
-pip install gcovr
-gcovr
-echo ;
-echo ;
 make re > /dev/null
 ret=0
 

@@ -34,6 +34,13 @@ jobs:
         run : |
           web=`cat weblink`
           echo "hook=$web" >> $GITHUB_ENV
+      - name: install_criterion
+        run : |
+          sh mouliVD/install_criterion.sh > /dev/null
+          make tests_run > /dev/null
+          pip install gcovr
+          gcovr --json-summary > gcovr.json
+          make fclean
       - name: Compile_and_test
         run: |
           touch test.md
@@ -69,5 +76,5 @@ jobs:
           DESCRIPTION: ${{ env.DESCRIPTION }}
           SUMMARY: ${{ steps.coding_style.outputs.SUMMARY }}
           FILES: trace.md;test.md;flag.png
-          USERNAME: Normeur
+          USERNAME: Dante mouli
           URL: ${{env.hook}}
