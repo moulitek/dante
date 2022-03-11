@@ -1,4 +1,8 @@
 #!/bin/sh
+make tests_run > /dev/null
+gcovr
+echo ;
+echo ;
 make re > /dev/null
 ret=0
 
