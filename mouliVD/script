@@ -40,7 +40,7 @@ test_expect_error () {
 
 test_expect_error_res () {
         echo "    on test ${1}"
-        ./solver/solver ${1}
+        ./solver/solver ${1} ${2}
         ret1=$(bash -c "echo $?")
         if [ $ret1 == 84 ]
         then
@@ -111,6 +111,7 @@ for entry in `ls $search_dir`; do
     test_expect_error_res $mine
 done
 test_expect_error_res "fake_file"
+test_expect_error_res $mine "too many file"
 
 
 tput setaf 201 bold
