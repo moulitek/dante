@@ -39,7 +39,7 @@ test_expect_error () {
 }
 
 test_expect_error_res () {
-        echo "    on test ${1}"
+        echo "    on test ${1} ${2}"
         ./solver/solver ${1} ${2}
         ret1=$(bash -c "echo $?")
         if [ $ret1 == 84 ]
