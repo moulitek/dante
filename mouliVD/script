@@ -135,13 +135,57 @@ do
     ret2=$(bash -c "echo $?")
     if [ $ret2 != 0 ] || [ $ret1 != 0 ]
     then
-        python3 mouliVD/color.py res.val
+        echo "__________________"
+        echo "on $w $h"
+        echo ;
+        cat output.val
+        echo ;
         echo "    KO"
+        echo "__________________"
         ret=84
     fi
 	i=`expr $i + 1`
 	rm output.val
     rm res.val
 done
+
+
+tput setaf 201 bold
+echo
+echo "====================================="
+echo "GO for LOOPING TEST on 1->10 value"
+echo "====================================="
+echo
+tput init
+
+echo "The loop generate map with your generator and solve it with your solver"
+i=0
+while [ $i -lt 101 ]
+do
+    w=`echo $(($RANDOM%10+1))`
+    h=`echo $(($RANDOM%10+1))`
+    echo "[$i] loop on $w $h"
+    echo ;
+    ./generator/generator $w $h > output.val
+    ret1=$(bash -c "echo $?")
+    ./solver/solver output.val > res.val
+    ret2=$(bash -c "echo $?")
+    if [ $ret2 != 0 ] || [ $ret1 != 0 ]
+    then
+        echo "__________________"
+        echo "on $w $h"
+        echo ;
+        cat output.val
+        echo ;
+        echo "    KO"
+        echo "__________________"
+        ret=84
+    fi
+	i=`expr $i + 1`
+	rm output.val
+    rm res.val
+done
+
+
 make fclean > /dev/null
 exit $ret
