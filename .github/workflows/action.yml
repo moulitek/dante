@@ -13,8 +13,8 @@ jobs:
         run : |
           mv mouliVD .mouliVD
           mv weblink .weblink
-      - name: Ardorax Coding Style
-        uses: Ardorax/EpitechStyle@latest
+      - name: Abricot Coding Style
+        uses: Just1truc/Abricot-Norminette@latest
         id: coding_style
       - name: UnHide file before norm
         run : |
@@ -61,7 +61,7 @@ jobs:
             mv norm-flag.png flag.png
             echo "DESCRIPTION=NORM ERROR" >> $GITHUB_ENV
           fi
-      - name: normi message
+      - name: discordwebhook
         if: always()
         uses: Ardorax/EpitechStyleDiscord@latest
         with:
