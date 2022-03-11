@@ -1,4 +1,4 @@
-name: CI_minishell
+name: CI_dante
 
 on: push
 
